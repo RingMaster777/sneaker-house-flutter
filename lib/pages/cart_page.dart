@@ -5,6 +5,15 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Center(
+      child: Text(
+        'Cart Page',
+        style: TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+          color: Colors.grey.shade700,
+        ),
+      ),
+    );
   }
 }
