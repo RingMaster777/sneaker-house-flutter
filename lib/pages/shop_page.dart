@@ -4,9 +4,14 @@ import 'package:sneaker_house_app/components/shoe_tile.dart';
 import 'package:sneaker_house_app/models/cart.dart';
 import 'package:sneaker_house_app/models/shoe.dart';
 
-class ShopPage extends StatelessWidget {
+class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
 
+  @override
+  State<ShopPage> createState() => _ShopPageState();
+}
+
+class _ShopPageState extends State<ShopPage> {
   @override
   Widget build(BuildContext context) {
     void addShoeToCart(Shoe shoe) {
@@ -26,7 +31,7 @@ class ShopPage extends StatelessWidget {
 
     return Consumer<Cart>(
       builder:
-          (context, value, ChildBackButtonDispatcher) => Column(
+          (context, value, child) => Column(
             children: [
               // searchbar
               Container(
