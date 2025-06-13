@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sneaker_house_app/components/bottom_nav_bar.dart';
+import 'package:sneaker_house_app/components/my_drawer.dart';
 import 'package:sneaker_house_app/pages/cart_page.dart';
 import 'package:sneaker_house_app/pages/shop_page.dart';
 
@@ -31,7 +32,9 @@ class _HomePageState extends State<HomePage> {
         onTabChange: (index) => navigateBottomBar(index),
       ),
       appBar: AppBar(
+        title: Text("Sneaker House", textAlign: TextAlign.center),
         backgroundColor: Colors.transparent,
+        foregroundColor: Theme.of(context).colorScheme.inversePrimary,
         elevation: 0,
         leading: Builder(
           builder: (context) {
@@ -44,97 +47,7 @@ class _HomePageState extends State<HomePage> {
           },
         ),
       ),
-      drawer: Drawer(
-        backgroundColor: Colors.grey[900],
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                DrawerHeader(
-                  child: Image.asset(
-                    'lib/images/logo.jpeg',
-                    color: Colors.white,
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Divider(color: Colors.grey[800]),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.only(left: 25.0),
-                  child: ListTile(
-                    leading: Icon(Icons.home, color: Colors.white),
-                    title: Text('Home', style: TextStyle(color: Colors.white)),
-                    onTap: () {
-                      Navigator.pop(context);
-                      setState(() {
-                        _selectedIndex = 0;
-                      });
-                    },
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.only(left: 25.0),
-                  child: ListTile(
-                    leading: Icon(Icons.shop, color: Colors.white),
-                    title: Text('Shop', style: TextStyle(color: Colors.white)),
-                    onTap: () {
-                      Navigator.pop(context);
-                      setState(() {
-                        _selectedIndex = 0;
-                      });
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 25.0),
-                  child: ListTile(
-                    leading: Icon(Icons.shopping_cart, color: Colors.white),
-                    title: Text('Cart', style: TextStyle(color: Colors.white)),
-                    onTap: () {
-                      Navigator.pop(context);
-                      setState(() {
-                        _selectedIndex = 1;
-                      });
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 25.0, bottom: 25.0),
-                  child: ListTile(
-                    leading: Icon(Icons.info, color: Colors.white),
-                    title: Text('About', style: TextStyle(color: Colors.white)),
-                    onTap: () {
-                      Navigator.pop(context);
-                      setState(() {
-                        _selectedIndex = 1;
-                      });
-                    },
-                  ),
-                ),
-              ],
-            ),
-
-            Padding(
-              padding: const EdgeInsets.only(left: 25.0),
-              child: ListTile(
-                leading: Icon(Icons.logout, color: Colors.white),
-                title: Text('logout', style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.pop(context);
-                  setState(() {
-                    _selectedIndex = 1;
-                  });
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
+      drawer: MyDrawer(),
       body: _pages[_selectedIndex],
     );
   }

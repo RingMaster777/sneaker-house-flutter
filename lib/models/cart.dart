@@ -29,23 +29,23 @@ class Cart extends ChangeNotifier {
     ),
   ];
 
-  List<Shoe> useCart = [];
+  List<Shoe> userCart = [];
 
   List<Shoe> getShoeList() {
     return shoeShop;
   }
 
   List<Shoe> getCartList() {
-    return useCart;
+    return userCart;
   }
 
   void addToCart(Shoe shoe) {
-    useCart.add(shoe);
+    userCart.add(shoe);
     notifyListeners();
   }
 
   void removeFromCart(Shoe shoe) {
-    useCart.remove(shoe);
+    userCart.remove(shoe);
     notifyListeners();
   }
 }

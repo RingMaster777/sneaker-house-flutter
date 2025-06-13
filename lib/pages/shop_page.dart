@@ -54,10 +54,7 @@ class _ShopPageState extends State<ShopPage> {
 
               //message
               Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 25.0,
-                  horizontal: 16,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
 
                 child: Text(
                   "Fly higher.. just always take a moment to see how far you've come.",
@@ -90,7 +87,7 @@ class _ShopPageState extends State<ShopPage> {
 
               Expanded(
                 child: ListView.builder(
-                  itemCount: 4,
+                  itemCount: value.getShoeList().length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     Shoe shoe = value.getShoeList()[index];

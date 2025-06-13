@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sneaker_house_app/components/my_button.dart';
 import 'package:sneaker_house_app/pages/home_page.dart';
 
 class IntroPage extends StatelessWidget {
@@ -7,17 +8,17 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
-
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(24.0),
-                child: Image.asset('lib/images/logo.jpeg', height: 240),
+              Icon(
+                Icons.shopping_bag,
+                size: 72,
+                color: Theme.of(context).colorScheme.inversePrimary,
               ),
               const SizedBox(height: 48),
 
@@ -32,29 +33,9 @@ class IntroPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 40),
-              GestureDetector(
-                onTap:
-                    () => Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
-                    ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[800],
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  padding: const EdgeInsets.all(25.0),
-                  child: Center(
-                    child: Text(
-                      'Get Started',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
+              MyButton(
+                onTap: () => Navigator.pushNamed(context, "/home_page"),
+                child: Icon(Icons.arrow_forward),
               ),
             ],
           ),
